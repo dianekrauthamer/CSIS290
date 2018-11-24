@@ -1,0 +1,133 @@
+
+
+body {	background-color: #fffff; 
+	color: #00000; 
+	font-family: Verdana, sans-serif; }
+
+h1 { 	background-color: #DC143C, #ff0000; 
+	color: black; 
+	font-weight: bold;
+	line-height: 0%;
+	text-align: left;
+	font-size: 100%;
+	font-family: Verdana, sans-serif;	
+	text-shadow: 7px 9px 25px #900000; } 
+
+h2 { 	color: #00000;
+	text-align: left;
+	font-family: Verdana, sans-serif; 
+	text-shadow: 7px 6px 25px #900000; }
+p {   font-size: 100%;
+	text-indent: 3em; 
+	font-family: Verdana, sans-serif; }
+
+a:link { color: #990000;
+	text-decoration: none;
+	font-weight: bold; }
+
+nav a {	display: inline-block;
+	padding: 10px ;
+	float: center;
+	font-size: 80%; 
+	text-align: center;
+	width: 100px; }
+nav {float: center;}
+
+nav a:visited { color: #990000; }
+
+a:visited { color: #990000; }
+
+nav a:hover { color: #000000;
+	     font-weight: bold;}
+
+table { padding: 10px 10px 3px 1px;
+	margin: auto;
+        border: none;
+        width: 1000px; 
+		border-spacing: 0;
+	text-align: left;
+	float: left;
+}
+
+td, th { padding: 1em;
+         font-family: Verdana, sans-serif; 
+}
+
+caption { font-family: Verdana, sans-serif;
+          font-weight: bold;
+          font-size: 1.2em;
+          padding-bottom: 0.5em; 
+	text-align: left;
+}
+
+tr:nth-of-type(even) { background-color: #e5cfcf; }
+tr:first-of-type { background-color: #990000;
+                   color: #ffffff; 
+}
+
+a:hover { border: none;
+	color: #000000;}
+
+img {	float: right;
+	padding: 0px 10px 12px 12px; }
+
+#definition { padding: 20px 3px 30px 12px;}
+
+footer { color: #00000;
+	font-size: .75em;
+	font-style: italic; }
+
+.organization { color: #990000;
+	font-weight: bold;
+	font-family: Verdana, sans-serif;
+	font-size: 1.25em; }
+
+nav a:active { color: red; }
+
+a:active { color: red; }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+#wrapper {
+    margin-left:auto;
+    margin-right:auto;
+    width:960px;
+}
+
+#communism { float: left;} 
+
+form { background-color: #eaeaea;
+	font-family: Verdana, sans-serif;
+    padding: 50px;
+	width: 650px;	}
+
+label { float: left;
+	width: 100px; 
+	clear: left;
+	text-align: left; 
+	padding-right: 10px;
+	margin-top: 10px;
+	 }
+
+input { margin-top: 10px; 
+                  display: inline;} 
+#myComments {display: inline-block;}
+
+#myName {  display: block;}
+#myEmail {  display: block;}
+
+#mySubmit { 
+ display: inline; 
+float: right}
+
+#myReset { float: right;
+ display: inline; 
+margin: 10px;}
