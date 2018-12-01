@@ -164,58 +164,58 @@ Below is the code for these two classes:
         return sqFeet;
 	}
 	
-	public static double sqMilesToInches (double sqMiles)<br>
-    {    <br>
-        double sqInches;<br>
-        sqInches = sqMiles * 4.014e9;<br>
-        return sqInches;<br>
-	}<br><br>
-	
-	public static double sqMilesToFeet (double sqMiles)<br>
-    {    <br>
-        double sqFeet;<br>
-        sqFeet = sqMiles * 4.014e9;<br>
-        return sqFeet;<br>
+	public static double sqMilesToInches (double sqMiles)
+    {    
+        double sqInches;
+        sqInches = sqMiles * 4.014e9;
+        return sqInches;
 	}
-    <br><br>
-    public static double sqMilesToYards (double sqMiles)<br>
-    {    <br>
-        double sqYards;<br>
-        sqYards = sqMiles * 4.014e9;<br>
-        return sqYards;<br>
-	}
-	<br><br>
-	public static double cubicFeetToInches (double cubicFeet)<br>
-    {    <br>
-        double cubicInches;<br>
-        cubicInches = cubicFeet / 1728;<br>
-        return cubicInches;<br>
-	}<br><br>
 	
-	public static double cubicFeetToMeters (double cubicFeet)<br>
-    {    <br>
-        double cubicMeters;<br>
-        cubicMeters = cubicFeet * 0.0283168;<br>
-        return cubicMeters;<br>
-	}<br><br>
+	public static double sqMilesToFeet (double sqMiles)
+    {   
+        double sqFeet;
+        sqFeet = sqMiles * 4.014e9;
+        return sqFeet;
+	}
+    
+    public static double sqMilesToYards (double sqMiles)
+    {    
+        double sqYards;
+        sqYards = sqMiles * 4.014e9;
+        return sqYards;
+	}
+	
+	public static double cubicFeetToInches (double cubicFeet)
+    {    
+        double cubicInches;
+        cubicInches = cubicFeet / 1728;
+        return cubicInches;
+	}
+	
+	public static double cubicFeetToMeters (double cubicFeet)
+    {   
+        double cubicMeters;
+        cubicMeters = cubicFeet * 0.0283168;
+        return cubicMeters;
+	}
    
-   	public static double cubicFeetToYards (double cubicFeet)<br>
-    {    <br>
-        double cubicYards;<br>
-        cubicYards = cubicFeet * 0.037037;<br>
-        return cubicYards;<br>
-	}<br><br>
+   	public static double cubicFeetToYards (double cubicFeet)
+    {    
+        double cubicYards;
+        cubicYards = cubicFeet * 0.037037;
+        return cubicYards;
+	}
 	
-	public static double cubicYardsToInches (double cubicYards)<br>
-    {    <br>
-        double cubicInches;<br>
-        cubicInches = cubicYards * 46656;<br>
-        return cubicInches;<br>
-	}<br>
-	<br>
-	public static double cubicYardsToMeters (double cubicYards)<br>
-    {   <br> 
-        double cubicMeters;<br>
+	public static double cubicYardsToInches (double cubicYards)
+    {   
+        double cubicInches;
+        cubicInches = cubicYards * 46656;
+        return cubicInches;
+	}
+	
+	public static double cubicYardsToMeters (double cubicYards)
+    {  
+        double cubicMeters;
         cubicMeters = cubicYards * 0.764555;
         return cubicMeters;
 	}
@@ -328,248 +328,248 @@ Below is the code for these two classes:
 
 </p>
 <p class="code">
-import java.util.Scanner;<br>
-import javax.swing.JOptionPane;<br>
-<br><br>
-/****************************************************************<br>
-*	This program prompts the user for the input data and then	* <br>
-*   calls the correct method(s) from the DianeConversions class *<br>
-*   to perform the calculation(s) 								*<br>
-*	Written by Diane Krauthamer									*<br>								*
-****************************************************************/<br>
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 
-<br><br>
-<strong>class <a name="DianeConversionsTest">DianeConversionsTest</a></strong> {<br>
-	public static void main(String[] args)<br>
-    {<br>
-        //Define the programmer-defined variables<br>
-        int optionSelected;<br>
-        String str;<br><br>
+/****************************************************************
+*	This program prompts the user for the input data and then	* 
+*   calls the correct method(s) from the DianeConversions class *
+*   to perform the calculation(s) 								*
+*	Written by Diane Krauthamer									*
+****************************************************************/
+
+
+<strong>class <a name="DianeConversionsTest">DianeConversionsTest</a></strong> {
+	public static void main(String[] args)
+    {
+        //Define the programmer-defined variables
+        int optionSelected;
+        String str;
       
-        double inches;<br>
-        double meters;<br>
-        double centimeters;<br>
-        double feet;<br>
-        double yards;<br>
-        double kilometers;<br>
-        double miles;<br><br>
+        double inches;
+        double meters;
+        double centimeters;
+        double feet;
+        double yards;
+        double kilometers;
+        double miles;
         
-        double sqYards;<br>
-        double sqInches;<br>
-        double sqMeters;<br>
-        double sqFeet;<br>
-        double sqMiles;<br><br>
+        double sqYards;
+        double sqInches;
+        double sqMeters;
+        double sqFeet;
+        double sqMiles;
         
-        double cubicFeet;<br>
-        double cubicInches;<br>
-        double cubicMeters;<br>
-        double cubicYards;<br><br>
+        double cubicFeet;
+        double cubicInches;
+        double cubicMeters;
+        double cubicYards;
         
-        double ounces;<br>
-        double kilograms;<br>
-        double pounds;<br>
-        double grams;<br><br>
+        double ounces;
+        double kilograms;
+        double pounds;
+        double grams;
 
-		double pints;<br>
-		double cups;<br>
-		double quarts;<br>
-		double gallons;<br><br>
+		double pints;
+		double cups;
+		double quarts;
+		double gallons;
         
   
-        // Prompt the user to select an option<br>
-            str = JOptionPane.showInputDialog(null, "\nType an option to perform the operation\n" +<br>
-            "   Option 1:  (Length) Inches to Centimeters, Meters, Feet, Yards, and Kilometers, \n" + <br>
-            "   Option 2:  (Length) Feet to Meters, Yards, Kilometers, and Miles\n" + <br>
-            "   Option 3:  (Length) Yards to Meters, Feet, Kilometers, and Miles\n" + <br>
-            "   Option 4:  (Area) Square Yards to Square Inches, Square Meters, and Square Feet\n" + <br>
-            "   Option 5:  (Area) Square Miles to Square Inches, Square Feet, and Square Yards\n" + <br>
-            "   Option 6:  (Volume) Cubic Feet to Cubic Inches, Cubic Meters, and Cubic Yards\n" + <br>
-            "   Option 7:  (Volume) Cubic Yards to Cubic Inches, Cubic Meters, and Cubic Feet\n" + <br>
-            "   Option 8:  (Weight) Ounces to Kilograms, Pounds, and Grams\n" + <br>
-            "   Option 9:  (Weight) Pounds to Ounces, Kilograms, and Grams\n" + <br>
-            "   Option 10: (Liquid) Pints to Ounces, Cups, Quarts, and Gallons (US)\n" + <br>
-            "   Option 11: (Liquid) Quarts to Ounces, Pints, Cups, and Gallons (US)\n" + <br>
-            "   Option 12: End the Program\n");<br>
-			optionSelected = Integer.parseInt(str);//convert the string input to an integer <br>
-<br>
+        // Prompt the user to select an option
+            str = JOptionPane.showInputDialog(null, "\nType an option to perform the operation\n" +
+            "   Option 1:  (Length) Inches to Centimeters, Meters, Feet, Yards, and Kilometers, \n" + 
+            "   Option 2:  (Length) Feet to Meters, Yards, Kilometers, and Miles\n" + 
+            "   Option 3:  (Length) Yards to Meters, Feet, Kilometers, and Miles\n" + 
+            "   Option 4:  (Area) Square Yards to Square Inches, Square Meters, and Square Feet\n" + 
+            "   Option 5:  (Area) Square Miles to Square Inches, Square Feet, and Square Yards\n" + 
+            "   Option 6:  (Volume) Cubic Feet to Cubic Inches, Cubic Meters, and Cubic Yards\n" + 
+            "   Option 7:  (Volume) Cubic Yards to Cubic Inches, Cubic Meters, and Cubic Feet\n" + 
+            "   Option 8:  (Weight) Ounces to Kilograms, Pounds, and Grams\n" + 
+            "   Option 9:  (Weight) Pounds to Ounces, Kilograms, and Grams\n" + 
+            "   Option 10: (Liquid) Pints to Ounces, Cups, Quarts, and Gallons (US)\n" + 
+            "   Option 11: (Liquid) Quarts to Ounces, Pints, Cups, and Gallons (US)\n" + 
+            "   Option 12: End the Program\n");
+			optionSelected = Integer.parseInt(str);//convert the string input to an integer 
+
         
-        while (optionSelected != 12)<br>
-        {<br>
-          switch(optionSelected)<br>
-          {<br>
-            case 1:<br>
-              String str1 = JOptionPane.showInputDialog(null,"\nPlease enter the length in inches: ");<br>
-              inches = Double.parseDouble(str1);<br>
-              centimeters  = DianeConversions.inchesToCentimeters(inches);<br>
-              meters  = DianeConversions.inchesToMeters(inches);<br>
-              feet  = DianeConversions.inchesToFeet(inches);<br>
-              yards  = DianeConversions.inchesToYards(inches);<br>
-              kilometers  = DianeConversions.inchesToKilometers(inches);<br>
-              JOptionPane.showMessageDialog(null, String.format(" %.2f inches converts to the following: ", inches) +  <br>
-              String.format("\n %.2f centimeters", centimeters)+ <br>
-              String.format("\n %.2f meters", meters)+ <br>
-              String.format("\n %.2f feet", feet)+ <br>
-              String.format("\n %.2f yards", yards)+ <br>
-              String.format("\n %.2f kilometers", kilometers)); <br>
-              break; <br>
-<br>
-            case 2: <br>
-              String str2 = JOptionPane.showInputDialog(null,"\nPlease enter the length in feet: ");<br>
-              feet = Double.parseDouble(str2);<br>
-              meters  = DianeConversions.feetToMeters(feet);<br>
-              yards  = DianeConversions.feetToYards(feet);<br>
-              kilometers  = DianeConversions.feetToKilometers(feet);<br>
-              miles  = DianeConversions.feetToMiles(feet);<br>
-              JOptionPane.showMessageDialog(null, String.format(" %.2f feet converts to the following: ", feet)+ <br>
-              String.format("\n %.2f meters", meters)+<br>
-              String.format("\n %.2f yards", yards)+<br>
-              String.format("\n %.2f kilometers", kilometers)+<br>
-              String.format("\n %.2f miles", miles));<br>
-              break;<br><br>
+        while (optionSelected != 12)
+        {
+          switch(optionSelected)
+          {
+            case 1:
+              String str1 = JOptionPane.showInputDialog(null,"\nPlease enter the length in inches: ");
+              inches = Double.parseDouble(str1);
+              centimeters  = DianeConversions.inchesToCentimeters(inches);
+              meters  = DianeConversions.inchesToMeters(inches);
+              feet  = DianeConversions.inchesToFeet(inches);
+              yards  = DianeConversions.inchesToYards(inches);
+              kilometers  = DianeConversions.inchesToKilometers(inches);
+              JOptionPane.showMessageDialog(null, String.format(" %.2f inches converts to the following: ", inches) +  
+              String.format("\n %.2f centimeters", centimeters)+ 
+              String.format("\n %.2f meters", meters)+ 
+              String.format("\n %.2f feet", feet)+ 
+              String.format("\n %.2f yards", yards)+ 
+              String.format("\n %.2f kilometers", kilometers)); 
+              break; 
+
+            case 2: 
+              String str2 = JOptionPane.showInputDialog(null,"\nPlease enter the length in feet: ");
+              feet = Double.parseDouble(str2);
+              meters  = DianeConversions.feetToMeters(feet);
+              yards  = DianeConversions.feetToYards(feet);
+              kilometers  = DianeConversions.feetToKilometers(feet);
+              miles  = DianeConversions.feetToMiles(feet);
+              JOptionPane.showMessageDialog(null, String.format(" %.2f feet converts to the following: ", feet)+ 
+              String.format("\n %.2f meters", meters)+
+              String.format("\n %.2f yards", yards)+
+              String.format("\n %.2f kilometers", kilometers)+
+              String.format("\n %.2f miles", miles));
+              break;
            
-            case 3:<br>
-              String str3 = JOptionPane.showInputDialog(null,"\nPlease enter the length in yards: ");<br>
-              yards = Double.parseDouble(str3);<br>
-              meters  = DianeConversions.yardsToMeters(yards);<br>
-              feet  = DianeConversions.yardsToFeet(yards);<br>
-              kilometers  = DianeConversions.yardsToKilometers(yards);<br>
-              miles  = DianeConversions.yardsToMiles(yards);<br>
-              JOptionPane.showMessageDialog(null, String.format(" %.2f yards converts to the following: ", yards)+ <br>
-              String.format("\n %.2f meters", meters)+<br>
-              String.format("\n %.2f feet", feet)+<br>
-              String.format("\n %.2f kilometers", kilometers)+ <br>
-              String.format("\n %.2f miles", miles));<br>
-              break;<br><br>
+            case 3:
+              String str3 = JOptionPane.showInputDialog(null,"\nPlease enter the length in yards: ");
+              yards = Double.parseDouble(str3);
+              meters  = DianeConversions.yardsToMeters(yards);
+              feet  = DianeConversions.yardsToFeet(yards);
+              kilometers  = DianeConversions.yardsToKilometers(yards);
+              miles  = DianeConversions.yardsToMiles(yards);
+              JOptionPane.showMessageDialog(null, String.format(" %.2f yards converts to the following: ", yards)+ 
+              String.format("\n %.2f meters", meters)+
+              String.format("\n %.2f feet", feet)+
+              String.format("\n %.2f kilometers", kilometers)+ 
+              String.format("\n %.2f miles", miles));
+              break;
 
-            case 4:<br>
-              String str4 = JOptionPane.showInputDialog(null,"\nPlease enter the area in square yards: ");<br>
-              sqYards = Double.parseDouble(str4);<br>
-              sqInches  = DianeConversions.sqYardsToInches(sqYards);<br>
-              sqMeters  = DianeConversions.sqYardsToMeters(sqYards);<br>
-              sqFeet  = DianeConversions.sqYardsToFeet(sqYards);<br>
-              JOptionPane.showMessageDialog(null, String.format(" %.2f square yards converts to the following: ", sqYards)+ <br>
-              String.format("\n %.2f square inches", sqInches)+<br>
-              String.format("\n %.2f square meters", sqMeters)+<br>
-              String.format("\n %.2f kilometers", sqFeet)); <br>
-              break;<br><br>
+            case 4:
+              String str4 = JOptionPane.showInputDialog(null,"\nPlease enter the area in square yards: ");
+              sqYards = Double.parseDouble(str4);
+              sqInches  = DianeConversions.sqYardsToInches(sqYards);
+              sqMeters  = DianeConversions.sqYardsToMeters(sqYards);
+              sqFeet  = DianeConversions.sqYardsToFeet(sqYards);
+              JOptionPane.showMessageDialog(null, String.format(" %.2f square yards converts to the following: ", sqYards)+
+              String.format("\n %.2f square inches", sqInches)+
+              String.format("\n %.2f square meters", sqMeters)+
+              String.format("\n %.2f kilometers", sqFeet)); 
+              break;
 
-            case 5:<br>
-              String str5 = JOptionPane.showInputDialog(null,"\nPlease enter the area in square miles: ");<br>
-              sqMiles = Double.parseDouble(str5);<br>
-              sqInches  = DianeConversions.sqMilesToInches(sqMiles);<br>
-              sqFeet  = DianeConversions.sqMilesToFeet(sqMiles);<br>
-              sqYards  = DianeConversions.sqMilesToYards(sqMiles);<br>
-              JOptionPane.showMessageDialog(null, String.format(" %.2f square miles converts to the following: ", sqMiles)+ <br>
-              String.format("\n %.2f square inches", sqInches)+<br>
-              String.format("\n %.2f square feet", sqFeet)+<br>
-              String.format("\n %.2f square yards", sqYards)); <br>
-              break;<br><br>
+            case 5:
+              String str5 = JOptionPane.showInputDialog(null,"\nPlease enter the area in square miles: ");
+              sqMiles = Double.parseDouble(str5);
+              sqInches  = DianeConversions.sqMilesToInches(sqMiles);
+              sqFeet  = DianeConversions.sqMilesToFeet(sqMiles);
+              sqYards  = DianeConversions.sqMilesToYards(sqMiles);
+              JOptionPane.showMessageDialog(null, String.format(" %.2f square miles converts to the following: ", sqMiles)+ 
+              String.format("\n %.2f square inches", sqInches)+
+              String.format("\n %.2f square feet", sqFeet)+
+              String.format("\n %.2f square yards", sqYards)); 
+              break;
 
-            case 6:<br>
-              String str6 = JOptionPane.showInputDialog(null,"\nPlease enter the volume in cubic feet:  ");<br>
-              cubicFeet = Double.parseDouble(str6);<br>
-              cubicInches  = DianeConversions.cubicFeetToInches(cubicFeet);<br>
-              cubicMeters  = DianeConversions.cubicFeetToMeters(cubicFeet); <br>
-              cubicYards  = DianeConversions.cubicFeetToYards(cubicFeet);<br>
-              JOptionPane.showMessageDialog(null, String.format(" %.2f cubic feet converts to the following: ", cubicFeet)+ <br>
-              String.format("\n %.2f cubic inches", cubicInches)+ <br>
-              String.format("\n %.2f cubic meters", cubicMeters)+ <br>
-              String.format("\n %.2f cubic yards", cubicYards)); <br>
-              break;<br><br>
+            case 6:
+              String str6 = JOptionPane.showInputDialog(null,"\nPlease enter the volume in cubic feet:  ");
+              cubicFeet = Double.parseDouble(str6);
+              cubicInches  = DianeConversions.cubicFeetToInches(cubicFeet);
+              cubicMeters  = DianeConversions.cubicFeetToMeters(cubicFeet); 
+              cubicYards  = DianeConversions.cubicFeetToYards(cubicFeet);
+              JOptionPane.showMessageDialog(null, String.format(" %.2f cubic feet converts to the following: ", cubicFeet)+ 
+              String.format("\n %.2f cubic inches", cubicInches)+ 
+              String.format("\n %.2f cubic meters", cubicMeters)+ 
+              String.format("\n %.2f cubic yards", cubicYards)); 
+              break;
 
-            case 7:<br>
-              String str7 = JOptionPane.showInputDialog(null,"\nPlease enter the volume in cubic yards:  "); <br>
-              cubicYards = Double.parseDouble(str7); <br>
-              cubicInches  = DianeConversions.cubicYardsToInches(cubicYards);<br>
-              cubicMeters  = DianeConversions.cubicYardsToMeters(cubicYards);<br>
-              cubicFeet  = DianeConversions.cubicYardsToFeet(cubicYards);<br>
-              JOptionPane.showMessageDialog(null, String.format(" %.2f cubic yards converts to the following: ", cubicYards)+ <br>
-              String.format("\n %.2f cubic inches", cubicInches)+<br>
-              String.format("\n %.2f cubic meters", cubicMeters)+<br>
-              String.format("\n %.2f cubic feet", cubicFeet)); <br>
-              break;        <br><br>
+            case 7:
+              String str7 = JOptionPane.showInputDialog(null,"\nPlease enter the volume in cubic yards:  "); 
+              cubicYards = Double.parseDouble(str7); 
+              cubicInches  = DianeConversions.cubicYardsToInches(cubicYards);
+              cubicMeters  = DianeConversions.cubicYardsToMeters(cubicYards);
+              cubicFeet  = DianeConversions.cubicYardsToFeet(cubicYards);
+              JOptionPane.showMessageDialog(null, String.format(" %.2f cubic yards converts to the following: ", cubicYards)+ 
+              String.format("\n %.2f cubic inches", cubicInches)+
+              String.format("\n %.2f cubic meters", cubicMeters)+
+              String.format("\n %.2f cubic feet", cubicFeet)); 
+              break;        
 
-            case 8:<br>
-              String str8 = JOptionPane.showInputDialog(null,"\nPlease enter the weight in ounces: ");<br>
-              ounces = Double.parseDouble(str8);<br>
-              kilograms  = DianeConversions.ouncesToKilo(ounces);<br>
-              pounds  = DianeConversions.ouncesToPounds(ounces);<br>
-              grams  = DianeConversions.ouncesToGrams(ounces);<br>
-              JOptionPane.showMessageDialog(null,String.format(" %.2f ounces converts to the following: ", ounces)+ <br>
-              String.format("\n %.2f kilograms", kilograms)+<br>
-              String.format("\n %.2f pounds", pounds)+<br>
-              String.format("\n %.2f grams", grams)); <br>
-              break;<br><br>
+            case 8:
+              String str8 = JOptionPane.showInputDialog(null,"\nPlease enter the weight in ounces: ");
+              ounces = Double.parseDouble(str8);
+              kilograms  = DianeConversions.ouncesToKilo(ounces);
+              pounds  = DianeConversions.ouncesToPounds(ounces);
+              grams  = DianeConversions.ouncesToGrams(ounces);
+              JOptionPane.showMessageDialog(null,String.format(" %.2f ounces converts to the following: ", ounces)+ 
+              String.format("\n %.2f kilograms", kilograms)+
+              String.format("\n %.2f pounds", pounds)+
+              String.format("\n %.2f grams", grams)); 
+              break;
 
-            case 9:<br>
-              String str9 = JOptionPane.showInputDialog(null,"\nPlease enter the weight in pounds: "); <br>
-              pounds = Double.parseDouble(str9);<br>
-              ounces  = DianeConversions.poundsToOunces(pounds);<br>
-              kilograms  = DianeConversions.poundsToKilograms(pounds);<br>
-              grams  = DianeConversions.poundsToGrams(pounds);<br>
-              JOptionPane.showMessageDialog(null,String.format(" %.2f pounds converts to the following: ", pounds)+<br>
-              String.format("\n %.2f ounces", ounces)+<br>
-              String.format("\n %.2f kilograms", kilograms)+<br>
-              String.format("\n %.2f grams", grams));<br>
-              break;<br><br>
+            case 9:
+              String str9 = JOptionPane.showInputDialog(null,"\nPlease enter the weight in pounds: "); 
+              pounds = Double.parseDouble(str9);
+              ounces  = DianeConversions.poundsToOunces(pounds);
+              kilograms  = DianeConversions.poundsToKilograms(pounds);
+              grams  = DianeConversions.poundsToGrams(pounds);
+              JOptionPane.showMessageDialog(null,String.format(" %.2f pounds converts to the following: ", pounds)+
+              String.format("\n %.2f ounces", ounces)+
+              String.format("\n %.2f kilograms", kilograms)+
+              String.format("\n %.2f grams", grams));
+              break;
               
-            case 10:<br>
-              String str10 = JOptionPane.showInputDialog(null,"\nPlease enter the amount of liquid in pints: ");<br>
-              pints = Double.parseDouble(str10);<br>
-              ounces  = DianeConversions.pintsToOunces(pints);<br>
-              cups  = DianeConversions.pintsToCups(pints);<br>
-              quarts  = DianeConversions.pintsToQuarts(pints);<br>
-              gallons  = DianeConversions.pintsToGallons(pints);<br>
-              JOptionPane.showMessageDialog(null,String.format(" %.2f pints converts to the following: ", pints)+ <br>
-              String.format("\n %.2f ounces", ounces)+<br>
-              String.format("\n %.2f cups", cups)+ <br>
-              String.format("\n %.2f quarts", quarts)+<br>
-              String.format("\n %.2f gallons", gallons)); <br> 
-              break;<br>
-              <br>
-            case 11:<br>
-              String str11g = JOptionPane.showInputDialog(null,"\nPlease enter the amount of liquid in quarts: ");<br>
-              //quarts = keyboardInput.nextDouble();<br>
-              quarts = Double.parseDouble(str11);<br>
-              ounces  = DianeConversions.quartsToOunces(quarts);<br>
-              pints  = DianeConversions.quartsToPints(quarts);<br>
-              cups  = DianeConversions.quartsToCups(quarts);<br>
-              gallons  = DianeConversions.quartsToGallons(quarts);<br>
-              JOptionPane.showMessageDialog(null,String.format(" %.2f quarts converts to the following: ", quarts)+ <br>
-              String.format("\n %.2f ounces", ounces)+<br>
-              String.format("\n %.2f pints", pints)+<br>
-              String.format("\n %.2f cups", cups)+<br>
-              String.format("\n %.2f gallons", gallons)); <br>
-              break;<br>
-<br>
-            case 12:<br>
-              break;<br>
-           <br>
-           default:<br>
-              JOptionPane.showMessageDialog(null,"Enter a number from 1 to 12 only ");<br>
-               <br>
-        } // End of the switch statement<br>
-          <br>
-        // Prompt the user to select another option <br>
-           str = JOptionPane.showInputDialog(null, "\nType an option to perform the operation\n" + <br>
-            "   Option 1:  (Length) Inches to Centimeters, Meters, Feet, Yards, and Kilometers, \n" + <br>
-            "   Option 2:  (Length) Feet to Meters, Yards, Kilometers, and Miles\n" + <br>
-            "   Option 3:  (Length) Yards to Meters, Feet, Kilometers, and Miles\n" + <br>
-            "   Option 4:  (Area) Square Yards to Square Inches, Square Meters, and Square Feet\n" + <br>
-            "   Option 5:  (Area) Square Miles to Square Inches, Square Feet, and Square Yards\n" + <br>
-            "   Option 6:  (Volume) Cubic Feet to Cubic Inches, Cubic Meters, and Cubic Yards\n" + <br>
-            "   Option 7:  (Volume) Cubic Yards to Cubic Inches, Cubic Meters, and Cubic Feet\n" + <br>
-            "   Option 8:  (Weight) Ounces to Kilograms, Pounds, and Grams\n" + <br>
-            "   Option 9:  (Weight) Pounds to Ounces, Kilograms, and Grams\n" + <br>
-            "   Option 10: (Liquid) Pints to Ounces, Cups, Quarts, and Gallons (US)\n" + <br>
-            "   Option 11: (Liquid) Quarts to Ounces, Pints, Cups, and Gallons (US)\n" + <br>
-            "   Option 12: End the Program\n"); <br>
-			optionSelected = Integer.parseInt(str);//convert the string to an integer <br>
-        <br>
-        } // End of the while statement <br>
-        System.exit(0);<br>
-    } // End of main<br>
-}<br>
+            case 10:
+              String str10 = JOptionPane.showInputDialog(null,"\nPlease enter the amount of liquid in pints: ");
+              pints = Double.parseDouble(str10);
+              ounces  = DianeConversions.pintsToOunces(pints);
+              cups  = DianeConversions.pintsToCups(pints);
+              quarts  = DianeConversions.pintsToQuarts(pints);
+              gallons  = DianeConversions.pintsToGallons(pints);
+              JOptionPane.showMessageDialog(null,String.format(" %.2f pints converts to the following: ", pints)+ 
+              String.format("\n %.2f ounces", ounces)+
+              String.format("\n %.2f cups", cups)+ 
+              String.format("\n %.2f quarts", quarts)+
+              String.format("\n %.2f gallons", gallons)); 
+              break;
+              
+            case 11:
+              String str11g = JOptionPane.showInputDialog(null,"\nPlease enter the amount of liquid in quarts: ");
+              //quarts = keyboardInput.nextDouble();
+              quarts = Double.parseDouble(str11);
+              ounces  = DianeConversions.quartsToOunces(quarts);
+              pints  = DianeConversions.quartsToPints(quarts);
+              cups  = DianeConversions.quartsToCups(quarts);
+              gallons  = DianeConversions.quartsToGallons(quarts);
+              JOptionPane.showMessageDialog(null,String.format(" %.2f quarts converts to the following: ", quarts)+ 
+              String.format("\n %.2f ounces", ounces)+
+              String.format("\n %.2f pints", pints)+
+              String.format("\n %.2f cups", cups)+
+              String.format("\n %.2f gallons", gallons)); 
+              break;
+
+            case 12:
+              break;
+           
+           default:
+              JOptionPane.showMessageDialog(null,"Enter a number from 1 to 12 only ");
+               
+        } // End of the switch statement
+          
+        // Prompt the user to select another option 
+           str = JOptionPane.showInputDialog(null, "\nType an option to perform the operation\n" + 
+            "   Option 1:  (Length) Inches to Centimeters, Meters, Feet, Yards, and Kilometers, \n" + 
+            "   Option 2:  (Length) Feet to Meters, Yards, Kilometers, and Miles\n" + 
+            "   Option 3:  (Length) Yards to Meters, Feet, Kilometers, and Miles\n" + 
+            "   Option 4:  (Area) Square Yards to Square Inches, Square Meters, and Square Feet\n" + 
+            "   Option 5:  (Area) Square Miles to Square Inches, Square Feet, and Square Yards\n" +
+            "   Option 6:  (Volume) Cubic Feet to Cubic Inches, Cubic Meters, and Cubic Yards\n" + 
+            "   Option 7:  (Volume) Cubic Yards to Cubic Inches, Cubic Meters, and Cubic Feet\n" +
+            "   Option 8:  (Weight) Ounces to Kilograms, Pounds, and Grams\n" + 
+            "   Option 9:  (Weight) Pounds to Ounces, Kilograms, and Grams\n" +
+            "   Option 10: (Liquid) Pints to Ounces, Cups, Quarts, and Gallons (US)\n" + 
+            "   Option 11: (Liquid) Quarts to Ounces, Pints, Cups, and Gallons (US)\n" + 
+            "   Option 12: End the Program\n"); 
+			optionSelected = Integer.parseInt(str);//convert the string to an integer 
+        
+        } // End of the while statement 
+        System.exit(0);
+    } // End of main
+}
 </pre>
     
 </p>
