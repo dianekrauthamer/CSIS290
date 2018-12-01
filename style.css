@@ -84,7 +84,11 @@ tr:first-of-type { background-color: #990000;
 a:hover { border: none;
 	color: #000000;}
 
-img { padding: 0px 10px 12px 12px; }
+img { 
+padding: 5px;
+    margin: 5px;
+border: .1px solid black;
+}
 
 
 footer { color: #00000;
@@ -134,5 +138,7 @@ label { float: left;
     font-family: Courier New, Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
     font-size: 75%;
     background-color: #eaeaea;
-     padding: 20px;
+    border: .1px solid black;
+    padding: 10px;
+    margin: 10px;
 }
