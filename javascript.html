@@ -14,13 +14,105 @@
 <ul>
   <li><a href="home.html">Home</a></li>
   <li><a href="java.html">Java</a></li>
-  <li><a href="javascript.html">JavaScript</a></li>
+  <li><a class="active" href="javascript.html">JavaScript</a></li>
   <li><a href="php.html">PHP</a></li>
 <li><a href="sql.html">SQL</a></li>
 </ul>
 </nav>
 <main>
+<p>
+JavaScript was a fun language to learn. As a student learning the language, my focus was on client-side JavaScript programming techniques. As such, I learned how to integrate JavaScript with HTML to bring interactivity to web pages. Examples of this can be found in the <a href="#birthdate">Birth Date program</a>, the <a href="#currentdate">Current Date program</a>, and the <a href="#currentdate">Future Date program</a>. </p> 
+<p>
+<h3><a name="birthdate">Birth Date Program</a></h3>
+The following program prompts a user to enter their date of birth, and prints to the screen what day of the week they were born. This program uses variables and operators to execute the code.
+<p>
+In the first step of this program, the user is asked for the year, month, and date in which they were born, as seen below:<br>
+<img src="images/javascriptbirthdate1.PNG" alt="Javascript birthdate 1"><br>
+<img src="images/javascriptbirthdate2.PNG" alt="Javascript birthdate 2"><br>
+<img src="images/javascriptbirthdate3.PNG" alt="Javascript birthdate 3"><br><br>
+After all three variables have been entered, the day of the week in which they were born is printed to the screen:<br>
+<img src="images/javascriptbirthdate4.PNG" alt="Javascript birthdate 4"><br><br>
+I wrote the following code to execute this program:<br>
+<pre>
+<p class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="en"&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Birth Date Program&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;script&gt;<br><br>
+    
+var daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];<br><br>
+    
+var year = prompt("Enter the year in which you were born: ");<br>
+var month = prompt("In numerical format, enter the month in which you were born (a number from 1-12): ");<br>
+var date = prompt("Enter the date in which you were born (a number from 1-31): ");<br><br>
 
+var birthDate = new Date(year, month - 1, date);<br><br>
+    
+alert("You were born on a " + (daysofWeek[birthDate.getDay()]));<br><br>
+   
+&lt;/script&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+&lt;/p&gt;</pre>
+
+<h3><a name="currentdate">Current Date Program</a></h3>
+In another example, I used the JavaScript <strong>Date</strong> object to write the current date and time into a web page:<br>
+<img src="images/currentdate.PNG" alt="Current date"><br>
+    
+I used the following code to execute this program:<br>
+<pre>
+<p class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="en"&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Current Date Program&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;script&gt;<br><br>
+    
+var currentDate = new Date();<br><br>
+
+document.write("The current date and time is : &lt;br&gt;");<br>
+document.write(currentDate);<br><br>
+   
+&lt;/script&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+</p></pre>
+    
+<h3><a name="futuredate">Future Date Program</a></h3>
+Finally, used calculate the <pre>Date</pre> object to calculate the date 12 months from now and write this into a web page:<br>
+<img src="images/futuredate.PNG" alt="Future date">
+
+I used the following code to execute this program:<br>
+
+&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="en"&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Future Date Program&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;script&gt;<br><br>
+    
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];<br><br>
+    
+    var futureDate = new Date();<br><br>
+    
+    futureDate.setMonth(futureDate.getMonth() + 12);<br><br>
+    
+    document.write("The date 12 months from now is :&lt;br&gt;" + futureDate.getDate());<br>
+    document.write(" " + months[futureDate.getMonth()]);<br>
+    document.write(" " + futureDate.getFullYear());<br><br>
+
+    
+&lt;/script&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+    </p>
+    
 </main>
 <footer>Copyright &copy; 2018 Diane Krauthamer</footer>
 </div>
