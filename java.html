@@ -40,130 +40,129 @@ After the user presses the "OK" button, the measurement conversions are displaye
     <img src="images/javaconversion3.PNG" alt="Java conversion 3"><br>
 Once the user hits "OK" on the preceding screen, the original menu appears. In order for the user to exit the program, they may hit the number "12" to exit out of the program:<br>
      <img src="images/javaconversion7.PNG" alt="Java conversion 7"><br>
-Below is the code for these two classes:<br><br>
+Below is the code for these two classes:
 <pre>
 <p class="code">
-<br>
-/****************************************************************<br>
-*	This program defines all the methods for the calculations   *<br>
-*   used in the DianeConversionsTest class 						*<br>
-*	Written by Diane Krauthamer									*<br>										*
-****************************************************************/<br>
- <br><br>
-<strong>public class <a name="DianeConversions">DianeConversions</a></strong> {<br>
- // Definition of all the measurement conversion methods<br>
-    <br>
-    public static double inchesToCentimeters (double inches)<br>
-    {    <br>
-        double centimeters;<br>
-        centimeters = inches * 2.54;<br>
-        return centimeters;<br>
-	}<br>
-    <br>
-	public static double inchesToMeters (double inches)<br>
-    {    <br>
-        double meters;<br>
-        meters = inches * 0.0254;<br>
-        return meters;<br>
-	}<br><br>
-    
-	public static double inchesToFeet (double inches)<br>
-    {    <br>
-        double feet;<br>
-        feet = inches / 12;<br>
-        return feet;<br>
-	}<br>
-    <br>
-	public static double inchesToYards (double inches)<br>
-    {    <br>
-        double yards;<br>
-        yards = inches / 36;<br>
-        return yards;<br>
-	}<br><br>
-   
-	public static double inchesToKilometers (double inches)<br>
-    {    <br>
-        double kilometers;<br>
-        kilometers = inches / 39370.1;<br>
-        return kilometers;<br>
-	}
-   <br><br>
-	public static double feetToMeters (double feet)<br>
-	{    <br>
-        double meters;<br>
-        meters = feet / 3.28;<br>
-        return meters;<br>
-	}<br><br>
-	
-	public static double feetToYards (double feet)<br>
-    {  <br>  
-        double yards;<br>
-        yards = feet / 3;<br>
-        return yards;<br>
-	}<br><br>
-	
-	public static double feetToKilometers (double feet)<br>
-    {    <br>
-        double kilometers;<br>
-        kilometers = feet / 3280.84;<br>
-        return kilometers;<br>
-	}<br><br>
-	
-	public static double feetToMiles (double feet)<br>
-    {    <br>
-        double miles;<br>
-        miles = feet / 5280;<br>
-        return miles;<br>
-	}<br><br>
-	
-	public static double yardsToMeters (double yards)<br>
-    {    <br>
-        double meters;<br>
-        meters = yards * 0.9144;<br>
-        return meters;<br>
-	}<br><br>
-	
-	public static double yardsToFeet (double yards)<br>
-    {    <br>
-        double feet;<br>
-        feet = yards * 3;<br>
-        return feet;<br>
-	}
-	<br><br>
-	public static double yardsToKilometers (double yards)<br>
-    {    <br>
-        double kilometers;<br>
-        kilometers = yards * 0.0009144;<br>
-        return kilometers;<br>
-	}
-		<br><br>
-	public static double yardsToMiles (double yards)<br>
-    {    <br>
-        double miles;<br>
-        miles = yards * 0.000568182;<br>
-        return miles;<br>
-	}<br><br>
+/****************************************************************
+*	This program defines all the methods for the calculations   *
+*   used in the DianeConversionsTest class 						*
+*	Written by Diane Krauthamer									*
+****************************************************************/
 
-	public static double sqYardsToInches (double sqYards)<br>
-    {    <br>
-        double sqInches;<br>
-        sqInches = sqYards * 1296;<br>
-        return sqInches;<br>
-	}<br><br>
+<strong>public class <a name="DianeConversions">DianeConversions</a></strong> {<
+ // Definition of all the measurement conversion methods
     
-	public static double sqYardsToMeters (double sqYards)<br>
-    {    <br>
-        double sqMeters;<br>
-        sqMeters = sqYards * 0.836127;<br>
-        return sqMeters;<br>
-	}<br><br>
+    public static double inchesToCentimeters (double inches)
+    {    
+        double centimeters;
+        centimeters = inches * 2.54;
+        return centimeters;
+	}
+    
+	public static double inchesToMeters (double inches)
+    {    
+        double meters;
+        meters = inches * 0.0254;
+        return meters;
+	}
+    
+	public static double inchesToFeet (double inches)
+    {    
+        double feet;
+        feet = inches / 12;
+        return feet;
+	}
+    
+	public static double inchesToYards (double inches)
+    {    
+        double yards;
+        yards = inches / 36;
+        return yards;
+	}
+   
+	public static double inchesToKilometers (double inches)
+    {    
+        double kilometers;
+        kilometers = inches / 39370.1;
+        return kilometers;
+	}
+   
+	public static double feetToMeters (double feet)
+	{    
+        double meters;
+        meters = feet / 3.28;
+        return meters;
+	}
 	
-	public static double sqYardsToFeet (double sqYards)<br>
-    {    <br>
-        double sqFeet;<br>
-        sqFeet = sqYards * 0.836127;<br>
-        return sqFeet;<br>
-	}<br><br>
+	public static double feetToYards (double feet)
+    {  
+        double yards;
+        yards = feet / 3;
+        return yards;
+	}
+	
+	public static double feetToKilometers (double feet)
+    {    
+        double kilometers;
+        kilometers = feet / 3280.84;
+        return kilometers;
+	}
+	
+	public static double feetToMiles (double feet)
+    {    
+        double miles;
+        miles = feet / 5280;
+        return miles;
+	}
+	
+	public static double yardsToMeters (double yards)
+    {    
+        double meters;
+        meters = yards * 0.9144;
+        return meters;
+	}
+	
+	public static double yardsToFeet (double yards)
+    {   
+        double feet;
+        feet = yards * 3;
+        return feet;
+	}
+	
+	public static double yardsToKilometers (double yards)
+    {    
+        double kilometers;
+        kilometers = yards * 0.0009144;
+        return kilometers;
+	}
+	
+	public static double yardsToMiles (double yards)
+    {    
+        double miles;
+        miles = yards * 0.000568182;
+        return miles;
+	}
+
+	public static double sqYardsToInches (double sqYards)
+    {    
+        double sqInches;
+        sqInches = sqYards * 1296;
+        return sqInches;
+	}
+    
+	public static double sqYardsToMeters (double sqYards)
+    {   
+        double sqMeters;
+        sqMeters = sqYards * 0.836127;
+        return sqMeters;
+	}
+	
+	public static double sqYardsToFeet (double sqYards)
+    {    
+        double sqFeet;
+        sqFeet = sqYards * 0.836127;
+        return sqFeet;
+	}
 	
 	public static double sqMilesToInches (double sqMiles)<br>
     {    <br>
@@ -217,115 +216,115 @@ Below is the code for these two classes:<br><br>
 	public static double cubicYardsToMeters (double cubicYards)<br>
     {   <br> 
         double cubicMeters;<br>
-        cubicMeters = cubicYards * 0.764555;<br>
-        return cubicMeters;<br>
-	}<br>
-	<br>
-	public static double cubicYardsToFeet (double cubicYards)<br>
-    {    <br>
-        double cubicFeet;<br>
-        cubicFeet = cubicYards * 27;<br>
-        return cubicFeet;<br>
-	}<br><br>
+        cubicMeters = cubicYards * 0.764555;
+        return cubicMeters;
+	}
 	
-	public static double ouncesToKilo (double ounces)<br>
-    {    <br>
-        double kilograms;<br>
-        kilograms = ounces * 0.0283495;<br>
-        return kilograms;<br>
-	}<br><br>
+	public static double cubicYardsToFeet (double cubicYards)
+    {    
+        double cubicFeet;
+        cubicFeet = cubicYards * 27;
+        return cubicFeet;
+	}
 	
-	public static double ouncesToPounds (double ounces)<br>
-    {    <br>
-        double pounds;<br>
-        pounds = ounces * 0.0625;<br>
-        return pounds;<br>
-	}<br><br>
+	public static double ouncesToKilo (double ounces)
+    {    
+        double kilograms;
+        kilograms = ounces * 0.0283495;
+        return kilograms;
+	}
 	
-	public static double ouncesToGrams (double ounces)<br>
-    {    <br>
-        double grams;<br>
-        grams = ounces * 28.3495;<br>
-        return grams;<br>
-	}<br><br>
+	public static double ouncesToPounds (double ounces)
+    {    
+        double pounds;
+        pounds = ounces * 0.0625;
+        return pounds;
+	}
 	
-	public static double poundsToOunces (double pounds)<br>
-    {    <br>
-        double ounces;<br>
-        ounces = pounds * 16;<br>
-        return ounces;<br>
-	}<br><br>
+	public static double ouncesToGrams (double ounces)
+    {   
+        double grams;
+        grams = ounces * 28.3495;
+        return grams;
+	}
 	
-	public static double poundsToKilograms (double pounds)<br>
-    {    <br>
-        double kilograms;<br>
-        kilograms = pounds * 0.453592;<br>
-        return kilograms;<br>
-	}<br><br>
+	public static double poundsToOunces (double pounds)
+    {    
+        double ounces;
+        ounces = pounds * 16;
+        return ounces;
+	}
 	
-	public static double poundsToGrams (double pounds)<br>
-    {    <br>
-        double grams;<br>
-        grams = pounds * 453.592;<br>
-        return grams;<br>
-	}<br><br>
+	public static double poundsToKilograms (double pounds)
+    {    
+        double kilograms;
+        kilograms = pounds * 0.453592;
+        return kilograms;
+	}
 	
-	public static double pintsToOunces (double pints)<br>
-    {    <br>
-        double ounces;<br>
-        ounces = pints * 453.592;<br>
-        return ounces;<br>
-	}<br><br>
+	public static double poundsToGrams (double pounds)
+    {    
+        double grams;
+        grams = pounds * 453.592;
+        return grams;
+	}
 	
-	public static double pintsToCups (double pints)<br>
-    {    <br>
-        double cups;<br>
-        cups = pints * 2;<br>
-        return cups;<br>
-	}<br><br>
+	public static double pintsToOunces (double pints)
+    {   
+        double ounces;
+        ounces = pints * 453.592;
+        return ounces;
+	}
 	
-	public static double pintsToQuarts (double pints)<br>
-    {    <br>
-        double quarts;<br>
-        quarts = pints /2;<br>
-        return quarts;<br>
-	}<br><br>
+	public static double pintsToCups (double pints)
+    {    
+        double cups;
+        cups = pints * 2;
+        return cups;
+	}
 	
-	public static double pintsToGallons (double pints)<br>
-    {    <br>
-        double gallons;<br>
-        gallons = pints * 0.125;<br>
-        return gallons;<br>
-	}<br><br>
+	public static double pintsToQuarts (double pints)
+    {    
+        double quarts;
+        quarts = pints /2;
+        return quarts;
+	}
 	
-	public static double quartsToOunces (double quarts)<br>
-    {    <br>
-        double ounces;<br>
-        ounces = quarts * 32;<br>
-        return ounces;<br>
-	}<br><br>
+	public static double pintsToGallons (double pints)
+    {    
+        double gallons;
+        gallons = pints * 0.125;
+        return gallons;
+	}
 	
-	public static double quartsToPints (double quarts)<br>
-    {    <br>
-        double pints;<br>
-        pints = quarts * 2;<br>
-        return pints;<br>
-	}<br>
-	<br>
-	public static double quartsToCups (double quarts)<br>
-    {    <br>
-        double cups;<br>
-        cups = quarts * 4;<br>
-        return cups;<br>
-	}<br><br>
+	public static double quartsToOunces (double quarts)
+    {    
+        double ounces;
+        ounces = quarts * 32;
+        return ounces;
+	}
 	
-	public static double quartsToGallons (double quarts)<br>
-    {    <br>
-        double gallons;<br>
-        gallons = quarts * 0.25;<br>
-        return gallons;<br>
-	}<br>
-}<br>
+	public static double quartsToPints (double quarts)
+    {   
+        double pints;
+        pints = quarts * 2;
+        return pints;
+	}
+    
+	public static double quartsToCups (double quarts)
+    {    
+        double cups;
+        cups = quarts * 4;
+        return cups;
+	}
+	
+	public static double quartsToGallons (double quarts)
+    {  
+        double gallons;
+        gallons = quarts * 0.25;
+        return gallons;
+	}
+}
 
 </p>
 <p class="code">
