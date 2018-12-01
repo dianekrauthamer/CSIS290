@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a name="top"></a>
 <header>
 <h2>Diane Krauthamer's Software Portfolio</h2><br>
 </header>
@@ -20,27 +21,26 @@
 </ul>
 </nav>
 <main>
-<p>
+<br>
 As a student learning software development, I learned many of the basics of object-oriented programming in both Java and C++.  I chose to display snippets of my full Java portfolio on this page. Much of what I learned from the Java programming language can be seen below.
-</p>
-<p>
+<br><br>
 In the following example, I learned to create a program which converts units of measurement. The program was created using the BlueJ Java Development Environment. 
-</p>
-<p>In order to execute this program, the I was required to create two classes to run within BlueJ. The first class, <a href="#DianeConversions">DianeConversions</a>, defines all the methods for the calculations that are to be used. The second class, <a href="#DianeConversionsTest">DianeConversionsTest</a> calls these methods when the program is run from the development environment.
+<br><br>
+In order to execute this program, the I was required to create two classes to run within BlueJ. The first class, <a href="#DianeConversions">DianeConversions</a>, defines all the methods for the calculations that are to be used. The second class, <a href="#DianeConversionsTest">DianeConversionsTest</a> calls these methods when the program is run from the development environment.
 </p>
 These classes appear as the following in the BlueJ environment:<br>
 <img src="images/javaclasses.PNG" alt="Java classes"> 
 <br><br>
-<p>
 The following shows what appears when the program is run through BlueJ. The first step asks for the user to input an option:<br>
 <img src="images/javaconversion1.PNG" alt="Java conversion"><br>
 In this example, the user is inputs option 1, which converts from inches to other units of measurement. After the number "1" is entered, the user is prompted to enter the length which they would like to convert:<br>
 <img src="images/javaconversion2.PNG" alt="Java conversion 2"><br>
 After the user presses the "OK" button, the measurement conversions are displayed:<br> 
-    <img src="images/javaconversion3.PNG" alt="Java conversion 3"><br>
+<img src="images/javaconversion3.PNG" alt="Java conversion 3"><br>
 Once the user hits "OK" on the preceding screen, the original menu appears. In order for the user to exit the program, they may hit the number "12" to exit out of the program:<br>
-     <img src="images/javaconversion7.PNG" alt="Java conversion 7"><br>
-Below is the code for these two classes:
+<img src="images/javaconversion7.PNG" alt="Java conversion 7"><br>
+The following is the code for the <a href="#DianeConversions">DianeConversions</a> class and the <a href="#DianeConversionsTest">DianeConversionsTest</a> class:<br>
+<h3><a name="DianeConversions">DianeConversions</a></h3>
 <pre>
 <p class="code">
 /****************************************************************
@@ -49,7 +49,7 @@ Below is the code for these two classes:
 *	Written by Diane Krauthamer									*
 ****************************************************************/
 
-<strong>public class <a name="DianeConversions">DianeConversions</a></strong> {<
+public class DianeConversions{
  // Definition of all the measurement conversion methods
     
     public static double inchesToCentimeters (double inches)
@@ -325,8 +325,10 @@ Below is the code for these two classes:
         return gallons;
 	}
 }
-
 </p>
+</pre>
+<h3><a name="DianeConversionsTest">DianeConversionsTest</a></h3>
+<pre>
 <p class="code">
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -339,7 +341,7 @@ import javax.swing.JOptionPane;
 ****************************************************************/
 
 
-<strong>class <a name="DianeConversionsTest">DianeConversionsTest</a></strong> {
+class DianeConversionsTest {
 	public static void main(String[] args)
     {
         //Define the programmer-defined variables
@@ -570,11 +572,9 @@ import javax.swing.JOptionPane;
         System.exit(0);
     } // End of main
 }
-</pre>
-    
+</pre>  
 </p>
-
-
+<a href="#top">Return to top of page</a><br><br>
 </main>
 <footer>Copyright &copy; 2018 Diane Krauthamer</footer>
 </div>

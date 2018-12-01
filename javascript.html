@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a name="top"></a>
 <header>
 <h2>Diane Krauthamer's Software Portfolio</h2><br>
 </header>
@@ -20,9 +21,8 @@
 </ul>
 </nav>
 <main>
-<p>
-JavaScript was a fun language to learn. As a student learning the language, my focus was on client-side JavaScript programming techniques. As such, I learned how to integrate JavaScript with HTML to bring interactivity to web pages. Examples of this can be found in the <a href="#birthdate">Birth Date program</a>, the <a href="#currentdate">Current Date program</a>, and the <a href="#currentdate">Future Date program</a>. </p> 
-<p>
+<br>
+JavaScript was a fun language to learn. As a student learning the language, my focus was on client-side JavaScript programming techniques. As such, I learned how to integrate JavaScript with HTML to bring interactivity to web pages. Examples of this can be found in the <a href="#birthdate">Birth Date program</a>, the <a href="#currentdate">Current Date program</a>, and the <a href="#currentdate">Future Date program</a>. <br> 
 <h3><a name="birthdate">Birth Date Program</a></h3>
 The following program prompts a user to enter their date of birth, and prints to the screen what day of the week they were born. This program uses variables and operators to execute the code.
 <br><br>
@@ -81,7 +81,6 @@ document.write(currentDate);
 &lt;/body&gt;
 &lt;/html&gt;
 </p></pre>
-    
 <h3><a name="futuredate">Future Date Program</a></h3>
 Finally, I used the Date object to calculate the date 12 months from now and write this into a web page:<br>
 <img src="images/futuredate.PNG" alt="Future date"><br>
@@ -95,22 +94,22 @@ I used the following code to execute this program:<br>
 &lt;body&gt;
 &lt;script&gt;
     
-    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", <br>"September", "October", "November", "December"];
     
-    var futureDate = new Date();
+var futureDate = new Date();
     
-    futureDate.setMonth(futureDate.getMonth() + 12);
+futureDate.setMonth(futureDate.getMonth() + 12);
     
-    document.write("The date 12 months from now is :&lt;br&gt;" + futureDate.getDate());
-    document.write(" " + months[futureDate.getMonth()]);
-    document.write(" " + futureDate.getFullYear());
+document.write("The date 12 months from now is :&lt;br&gt;" + futureDate.getDate());
+document.write(" " + months[futureDate.getMonth()]);
+document.write(" " + futureDate.getFullYear());
 
     
 &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
     </p></pre>
-    
+<a href="#top">Return to top of page</a><br><br>   
 </main>
 <footer>Copyright &copy; 2018 Diane Krauthamer</footer>
 </div>

@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a name="top"></a>
 <header>
 <h2>Diane Krauthamer's Software Portfolio</h2><br>
 </header>
@@ -28,15 +29,40 @@ To execute the game, I uploaded the following PHP files to a XAMPP Server: <br>
 <a href="#login">login.php</a><br>
 <a href="#game">game.php</a><br>
 <a href="#bootstrap">bootstrap.php</a><br><br>
-Additionally, I included basic styling using a file named starter-template.css and a standard README.md.<br><br> 
-The <a name="index">index.php</a> page introduces the user to the game. It displays what the game is about and offers a basic introduction to the site. This appears as the following in a web browser:<br>
+Additionally, I included basic styling using a file named starter-template.css and a standard README.md.<br>
+<h3><a name="index">index.php</a></h3>
+The <strong><a name="index">index.php</a></strong> page introduces the user to the game. It displays what the game is about and offers a basic introduction to the site. This appears as the following in a web browser:<br>
 <img src="images/phpindex.png" alt="Index"><br> 
 This page summarizes that one must be logged in to access the game. If you click “game.php” from this screen, the following message is displayed:<br>
-<img src="images/phpgamefailed.png" alt="Index"><br>  
-You may view the full index.php code here:<br>
-INSERT CODE FOR index.php<br>
-<br>
-The <a name="login">login.php</a> page creates a login screen for users to enter their name and password. The username can be anything, and the password must be “php123.” The “Log in” button on this screen submits the form data using method=”POST.” The username and password are then posted to the server, thus executing the request/response cycle.<br>
+<img src="images/phpgamefailed.png" alt="Index"><br> 
+You may view the full index.php code here:
+<pre>
+<p class="code">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Diane Krauthamer -  Rock Paper Scissors&lt;/title&gt;
+&lt;?php require_once "bootstrap.php"; ?&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="container"&gt;
+&lt;h1>Welcome to Rock Paper Scissors&lt;/h1&gt;
+&lt;p>
+&lt;a href="login.php">Please Log In&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+Attempt to go to
+&lt;a href="game.php"&gt;game.php&lt;/a&gt; without logging in - it should fail with an error message.
+&lt;p&gt;
+&lt;a href="http://www.wa4e.com/code/rps.zip"
+ target="_blank">Source Code for this Application&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</p>
+</pre>
+<h3><a name="login">login.php</a></h3>
+The <strong><a name="login">login.php</a></strong> page creates a login screen for users to enter their name and password. The username can be anything, and the password must be “php123.” The “Log in” button on this screen submits the form data using method=”POST.” The username and password are then posted to the server, thus executing the request/response cycle.<br>
 <img src="images/phplogin.png" alt="Login"><br>
 On the login page a “salted hash” is used for the password. To do this, I used the MD5 hashing algorithm to create created a $stored_hash variable. This is the MD5 of the salt concatenated with the plaintext of php123, and was computed using the following PHP: <pre>$md5 = hash('md5', 'XyZzy12*_php123')</pre>
 The following shows this page, as well as an example of a successful login:<br>
@@ -45,25 +71,199 @@ The following shows what happens when the incorrect password is entered:<br>
 <img src="images/phploginfail.PNG" alt="Login fail"> <br> 
 In addition to checking the password, the form contains error handling to check if data was entered at all, or if the field was left blank. For instance, if the user leaves the field blank, the following appears:<br> 
 <img src="images/phploginblank.PNG" alt="Login blank"> <br>
-The full code for this login.php page appears below:<br>
-ISNERT CODE for login.php<br><br>
+The full code for this login.php page appears below:
+<pre>
+<p class="code">
+&lt;?php // Do not put any HTML above this line
 
-Once a user successfully logs in, they are directed to the <a name="game">game.php</a> page. This page displays a the username entered in the URL and in the body - thus showing that the POST data successfully went through. In addition, there appears a drop-down menu with options of “rock,” “paper,” “scissors,” or “test.” 
+if ( isset($_POST['cancel'] ) ) {
+    // Redirect the browser to game.php
+    header("Location: index.php");
+    return;
+}
+
+$salt = 'XyZzy12*_';
+$stored_hash = '1a52e17fa899cf40fb04cfc42e6352f1';  // Pw is php123
+
+$failure = false;  // If we have no POST data
+
+// Check to see if we have some POST data, if we do process it
+if ( isset($_POST['who']) && isset($_POST['pass']) ) {
+    if ( strlen($_POST['who']) < 1 || strlen($_POST['pass']) &lt; 1 ) {
+        $failure = "User name and password are required";
+    } else {
+        $check = hash('md5', $salt.$_POST['pass']);
+        if ( $check == $stored_hash ) {
+            // Redirect the browser to game.php
+            header("Location: game.php?name=".urlencode($_POST['who']));
+            return;
+        } else {
+            $failure = "Incorrect password";
+        }
+    }
+}
+
+// Fall through into the View
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;?php require_once "bootstrap.php"; ?&gt;
+&lt;title>Diane Krauthamer's Login Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="container"&gt;
+&lt;h1&gt;Please Log Inlt;/h1&gt;
+&lt;?php
+if ( $failure !== false ) {
+    // Look closely at the use of single and double quotes
+    echo('&lt;p style="color: red;"&gt;'.htmlentities($failure)."&lt;/p&gt;\n");
+}
+?&gt;
+&lt;form method="POST"&gt;
+&lt;label for="nam"&gt;User Name&lt;/label&gt;
+&lt;input type="text" name="who" id="nam"&gt;&lt;br/&gt;
+&lt;label for="id_1723"&gt;Password&lt;/label&gt;
+&lt;input type="text" name="pass" id="id_1723"&gt;&lt;br/&gt;
+&lt;input type="submit" value="Log In"&gt;
+&lt;input type="submit" name="cancel" value="Cancel"&gt;
+&lt;/form&gt;
+&lt;p&gt;
+For a password hint, view source and find a password hint
+in the HTML comments.
+&lt;!-- Hint: The password is the four character sound a cat
+makes (all lower case) followed by 123. --&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</p>
+</pre>
+<h3><a name="game">game.php</a></h3>
+Once a user successfully logs in, they are directed to the <strong><a name="game">game.php</a></strong> page. This page displays a the username entered in the URL and in the body - thus showing that the POST data successfully went through. In addition, there appears a drop-down menu with options of “rock,” “paper,” “scissors,” or “test.” 
 <img src="images/phpgamemenu.png" alt="Game menu"> <br> 
-
-The following shows what appears when each of these options is chosen:<br> 
-<img src="images/phpgamerock.png" alt="Game rock"> <br> 
-<img src="images/phpgamepaper.PNG" alt="Game paper"> <br> 
-<img src="images/phpgamescissors.PNG" alt="Game scissors"> <br> 
+The following shows what appears when each of these options is chosen:<br><br>
+<strong>Rock</strong><br>
+<img src="images/phpgamerock.png" alt="Game rock"> <br>
+<strong>Paper</strong><br>
+<img src="images/phpgamepaper.PNG" alt="Game paper"> <br>
+<strong>Scissors</strong><br>
+<img src="images/phpgamescissors.PNG" alt="Game scissors"> <br>
+<strong>Test</strong><br>
 <img src="images/phpgametest.PNG" alt="Game test"> <br>
 <br>
+The following code shows how this is executed:
+<pre>
+<p class="code">
+&lt;?php
+
+// Demand a GET parameter
+if ( ! isset($_GET['name']) || strlen($_GET['name']) < 1  ) {
+    die('Name parameter missing');
+}
+
+// If the user requested logout go back to index.php
+if ( isset($_POST['logout']) ) {
+    header('Location: index.php');
+    return;
+}
+
+// Set up the values for the game...
+// 0 is Rock, 1 is Paper, and 2 is Scissors
+$names = array('Rock', 'Paper', 'Scissors');
+$human = isset($_POST["human"]) ? $_POST['human']+0 : -1;
+
+//$computer = 0; // Hard code the computer to rock
+// TODO: Make the computer be random
+$computer = rand(0,2);
+
+// This function takes as its input the computer and human play
+// and returns "Tie", "You Lose", "You Win" depending on play
+// where "You" is the human being addressed by the computer
+function check($computer, $human) {
+    // For now this is a rock-savant checking function
+    // TODO: Fix this
+    if ( $human == 0 ) {
+        return "Tie";
+    } else if ( $human == 1 ) {
+        return "You Win";
+    } else if ( $human == 2 ) {
+        return "You Lose";
+    }
+    return false;
+}
+
+// Check to see how the play happenned
+$result = check($computer, $human);
+
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Diane Krauthamer - Rock, Paper, Scissors Game&lt;/title&gt;
+&lt;?php require_once "bootstrap.php"; ?&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="container"&gt;
+&lt;h1>Rock Paper Scissors&lt;/h1&gt;
+&lt;?php
+if ( isset($_REQUEST['name']) ) {
+    echo "&lt;p&gt;Welcome: ";
+    echo htmlentities($_REQUEST['name']);
+    echo "&lt;/p&gt;\n";
+}
+?>
+&lt;form method="post"&gt;
+&lt;select name="human"&gt;
+&lt;option value="-1"&gt;Select&lt;/option&gt;
+&lt;option value="0">Rock&lt;/option&gt;
+&lt;option value="1">Paper&lt;/option&gt;
+&lt;option value="2">Scissors&lt;/option&gt;
+&lt;option value="3">Test&lt;/option&gt;
+&lt;/select&gt;
+&lt;input type="submit" value="Play"&gt;
+&lt;input type="submit" name="logout" value="Logout"&gt;
+&lt;/form&gt;
+
+&lt;pre&gt;
+&lt;?php
+if ( $human == -1 ) {
+    print "Please select a strategy and press Play.\n";
+} else if ( $human == 3 ) {
+    for($c=0;$c<3;$c++) {
+        for($h=0;$h<3;$h++) {
+            $r = check($c, $h);
+            print "Human=$names[$h] Computer=$names[$c] Result=$r\n";
+        }
+    }
+} else {
+    print "Your Play=$names[$human] Computer Play=$names[$computer] Result=$result\n";
+}
+?&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</p>
+</pre>
 When the user is done, they can hit the “Logout” button, and it redirects them back to the index.php page.
 <br>
-Last but not least, the <a name="bootstrap">bootstrap.php</a> page is included to ensure proper style and functionality of the site. This is not a page that is displayed, but is included in the head of the other PHP files. 
+<h3><a name="bootstrap">bootstrap.php</a></h3>
+Last but not least, the <strong><a name="bootstrap">bootstrap.php</a></strong> page is included to ensure proper style and functionality of the site. This is not a page that is displayed, but is included in the head of the other PHP files. 
 <br><br>
 Here is the code for this bootstrap.php file:
-bootstrap.php
+<pre>
+<p class="code">
+&lt;l!-- Latest compiled and minified CSS --&gt;
+&lt;link rel="stylesheet"<br> href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" <br>integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"<br> crossorigin="anonymous"&gt;
+
+&lt;!-- Optional theme --&gt;
+&lt;link rel="stylesheet"<br> href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" <br>integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"<br> crossorigin="anonymous"&gt;
+
+&lt;!-- Custom styles for this template --&gt;
+&lt;link href="starter-template.css" rel="stylesheet"&gt;
 </p>
+</pre>
+<a href="#top">Return to top of page</a><br><br>
 </main>
 <footer>Copyright &copy; 2018 Diane Krauthamer</footer>
 </div>
