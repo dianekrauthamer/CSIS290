@@ -21,7 +21,51 @@
 </ul>
 </nav>
 <main>
-<a href="#top">Return to top of page</a><br><br>
+<br>
+During the course of my study in software development, I learned the basic syntax and functionality of the SQL language. By learning SQL in combination with <a href="https://dianekrauthamer.github.io/CSIS290/php.html" target="_blank">PHP</a>, I learned how to build database applications. 
+<br>
+The following example shows how I was able to utilize a combination of SQL commands and PHP coding  to build a simple database application that allows for users to input data by sending commands to the database server through the browser. This application requires the user to input a username and password via PHP in order to be able to input data. The application then validates the data, and only allows the data to be inserted into the database if the data is valid. 
+<br><br>
+The first step in creating this database application was to create the database itself. To do this, I downloaded XAMPP to be able to work in PHP and SQL in a local testing environment. Once XAMPP was installed, I connected to the MySQL module in order to open a line of communication with XAMPP’s database server. I then pressed the “Admin” tab, which opened  the phpMyAdmin tool (a free software tool written in PHP, intended to handle the administration of MySQL over the web).
+<br>
+<img src="images/xampp.PNG" alt="XAMPP">
+<br>
+Finally, I created a new database called “autosdb” via the SQL tab in phpMyAdmin. I did this by entering the following command:
+    <pre><p class="code">CREATE DATABASE autosdb;</p></pre>
+Here is what this looks like in the phpMyAdmin tool:
+<img src="images/sqlphpmyadmin.PNG" alt="phpMyAdmin"><br>
+Following this, I went into the database and granted full access to username “diane” with password “zool” on the local web server with the following commands:
+<pre><p class="code">
+GRANT ALL ON autosdb.* TO 'diane'@'localhost' IDENTIFIED BY 'zool';
+GRANT ALL ON autosdb.* TO 'diane'@'127.0.0.1' IDENTIFIED BY 'zool';</p></pre>
+The following appeared after executing these commands:<br>
+<img src="images/sqlphpmyadminsuccess.PNG" alt="phpMyAdmin success"><br>
+Finally, I created a new table in the database named "autos." This table includes a primary key named "auto_id," which is a an integer that automatically increments as data is entered. The logical key is called the "make" which accepts a maximum of 128 characters, and the foreign keys are both integers called "auto_year" and "mileage":  
+<pre><p class="code">
+CREATE TABLE autos( 
+    auto_id INTEGER NOT NULL 
+    	AUTO_INCREMENT KEY, 
+    make VARCHAR(128), 
+    auto_year INTEGER, mileage INTEGER);
+</p></pre>
+After these commands are executed, a new table now exists in the database, and is ready to be used:<br>
+<img src="images/sqlautos.PNG" alt="Autos table"><br>
+Now it's time to create the PHP files. This requires the following four files:<br>
+<a href="#pdo">pdo.php</a><br>
+<a href="#index">index.php</a><br>
+<a href="#login">login.php</a><br>
+<a href="#autos">autos.php</a><br>
+<h3><a name="pdo">pdo.php</a></h3>
+The pdo.php file establishes a database connection using the username and password, the local host, and running on port 3306. The purpose of this file is to send SQL commands <em>from</em> PHP <em>to</em> the autos database. The code for this is as follows:
+<pre><p class="code">
+&lt;?php
+$pdo = new PDO('mysql:host=localhost;port=3306;dbname=autosdb', 
+   'diane', 'zool');
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+</p></pre>
+<h3>pdo.php</h3>
+
+<a href="#top">Return to top of page</a></p>
 </main>
 <footer>Copyright &copy; 2018 Diane Krauthamer</footer>
 </div>
