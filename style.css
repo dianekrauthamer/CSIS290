@@ -140,6 +140,16 @@ label { float: left;
 
     background-color: #eaeaea;
     border: .1px solid black;
-    padding: 5px;
+    padding: 5px 5px 10px 10px;
     margin: 5px;
 }
+
+pre {
+    display: block;
+    font-family: monospace;
+    background-color: #eaeaea;
+    color: #990000;
+    white-space: pre;
+    padding: 5px;
+    margin: 1em 0;
+} 

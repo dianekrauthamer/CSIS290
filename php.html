@@ -39,7 +39,6 @@ This page summarizes that one must be logged in to access the game. If you click
 <img src="images/phpgamefailed.PNG" alt="Index"><br> 
 You may view the full index.php code here:
 <pre>
-<p class="code">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -61,7 +60,6 @@ Attempt to go to
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/body&gt;
-</p>
 </pre>
 <h3><a name="login">login.php</a></h3>
 The <strong><a name="login">login.php</a></strong> page creates a login screen for users to enter their name and password. The username can be anything, and the password must be “php123.” The “Log in” button on this screen submits the form data using method=”POST.” The username and password are then posted to the server, thus executing the request/response cycle.<br>
@@ -75,7 +73,6 @@ In addition to checking the password, the form contains error handling to check 
 <img src="images/phploginblank.PNG" alt="Login blank"> <br>
 The full code for this login.php page appears below:
 <pre>
-<p class="code">
 &lt;?php // Do not put any HTML above this line
 
 if ( isset($_POST['cancel'] ) ) {
@@ -138,7 +135,6 @@ makes (all lower case) followed by 123. --&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/body&gt;
-</p>
 </pre>
 <h3><a name="game">game.php</a></h3>
 Once a user successfully logs in, they are directed to the <strong><a name="game">game.php</a></strong> page. This page displays a the username entered in the URL and in the body - thus showing that the POST data successfully went through. In addition, there appears a drop-down menu with options of "rock," "paper," "scissors," or "test."<br>
@@ -155,7 +151,6 @@ The following shows what appears when each of these options is chosen:<br><br>
 <br>
 The following code shows how this is executed:
 <pre>
-<p class="code">
 &lt;?php
 
 // Demand a GET parameter
@@ -245,7 +240,6 @@ if ( $human == -1 ) {
 &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</p>
 </pre>
 When the user is done, they can hit the “Logout” button, and it redirects them back to the index.php page.
 <br>
@@ -254,8 +248,7 @@ Last but not least, the <strong><a name="bootstrap">bootstrap.php</a></strong> p
 <br><br>
 Here is the code for this bootstrap.php file:
 <pre>
-<p class="code">
-&lt;l!-- Latest compiled and minified CSS --&gt;
+&lt;!-- Latest compiled and minified CSS --&gt;
 &lt;link rel="stylesheet"<br> href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" <br>integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"<br> crossorigin="anonymous"&gt;
 
 &lt;!-- Optional theme --&gt;
@@ -263,7 +256,6 @@ Here is the code for this bootstrap.php file:
 
 &lt;!-- Custom styles for this template --&gt;
 &lt;link href="starter-template.css" rel="stylesheet"&gt;
-</p>
 </pre>
 <a href="#top">Return to top of page</a><br><br>
 </main>

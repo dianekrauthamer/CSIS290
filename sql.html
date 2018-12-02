@@ -30,24 +30,24 @@ The first step in creating this database application was to create the database 
 <br>
 <img src="images/xampp.PNG" alt="XAMPP">
 <br>
-Finally, I created a new database called “autosdb” via the SQL tab in phpMyAdmin. I did this by entering the following command:
-    <pre><p class="code">CREATE DATABASE autosdb;</p></pre>
+Finally, I created a new database called “autosdb” (Autos Database) via the SQL tab in phpMyAdmin. I did this by entering the following command:
+<pre>CREATE DATABASE autosdb;</pre>
 Here is what this looks like in the phpMyAdmin tool:
 <img src="images/sqlphpmyadmin.PNG" alt="phpMyAdmin"><br>
 Following this, I went into the database and granted full access to username “diane” with password “zool” on the local web server with the following commands:
-<pre><p class="code">
+<pre>
 GRANT ALL ON autosdb.* TO 'diane'@'localhost' IDENTIFIED BY 'zool';
-GRANT ALL ON autosdb.* TO 'diane'@'127.0.0.1' IDENTIFIED BY 'zool';</p></pre>
+GRANT ALL ON autosdb.* TO 'diane'@'127.0.0.1' IDENTIFIED BY 'zool';</pre>
 The following appeared after executing these commands:<br>
 <img src="images/sqlphpmyadminsuccess.PNG" alt="phpMyAdmin success"><br>
-Finally, I created a new table in the database named "autos." This table includes a primary key named "auto_id," which is a an integer that automatically increments as data is entered. The logical key is called the "make" which accepts a maximum of 128 characters, and the foreign keys are both integers called "auto_year" and "mileage":  
-<pre><p class="code">
+Finally, I created a new table in the Autos Database named "autos." This table includes a primary key named "auto_id," which is a an integer that automatically increments as data is entered. The logical key is called the "make" which accepts a maximum of 128 characters, and the foreign keys are both integers called "auto_year" and "mileage":  
+<pre>
 CREATE TABLE autos( 
     auto_id INTEGER NOT NULL 
     	AUTO_INCREMENT KEY, 
     make VARCHAR(128), 
     auto_year INTEGER, mileage INTEGER);
-</p></pre>
+</pre>
 After these commands are executed, a new table now exists in the database, and is ready to be used:<br>
 <img src="images/sqlautos.PNG" alt="Autos table"><br>
 Now it's time to create the PHP files. This requires the following four files:<br>
@@ -56,14 +56,116 @@ Now it's time to create the PHP files. This requires the following four files:<b
 <a href="#login">login.php</a><br>
 <a href="#autos">autos.php</a><br>
 <h3><a name="pdo">pdo.php</a></h3>
-The pdo.php file establishes a database connection using the username and password, the local host, and running on port 3306. The purpose of this file is to send SQL commands <em>from</em> PHP <em>to</em> the autos database. The code for this is as follows:
-<pre><p class="code">
+The pdo.php file establishes a database connection using the username and password, the local host, and running on port 3306. The purpose of this file is to send SQL commands <em>from</em> PHP <em>to</em> the Autos Database. The code for this is as follows:
+<pre>
 &lt;?php
 $pdo = new PDO('mysql:host=localhost;port=3306;dbname=autosdb', 
    'diane', 'zool');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-</p></pre>
-<h3>pdo.php</h3>
+</pre>
+<h3><a name="index">index.php</a></h3>
+The index.php page provides an overview of the functionality of the Autos Database (similar to the <a href="https://dianekrauthamer.github.io/CSIS290/php.html#index"
+ target="_blank">index.php file on my PHP page</a>). Here is what this looks like on the web server:
+<img src="images/sqlindex.PNG" alt="Index"><br>
+Here is the code:
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title>Diane Krauthamer - Autos Database &lt;/title&gt;
+&lt;?php 
+    require_once "pdo.php";
+    ?&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="container"&gt;
+&lt;h1>Welcome to Autos Database&lt;/h1&gt;
+&lt;p&gt;
+&lt;a href="login.php">Please Log In&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+Attempt to go to
+&lt;a href="autos.php"&gt;autos.php&lt;/a&gt; without logging in - it should fail with an error message.
+&lt;p&gt;
+&lt;a href="https://www.wa4e.com/assn/autosdb/"
+ target="_blank">Specification for this Application&lt;/a>
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</pre>
+<h3><a name="login">login.php</a></h3>
+The login.php page provides user access to the Autos Database. It is similar to the <a href="https://dianekrauthamer.github.io/CSIS290/php.html#index"
+ target="_blank">login.php page on my PHP page</a> in that includes data validation for the username and password, and the criteria for both the username and password are the same.<br>
+Here is what login.php this looks like on the web server:<br>
+  INSERT SCREENSHOT
+Here is the code used to create this page:<br>
+<pre>
+&lt;?php // Do not put any HTML above this line
+require_once "pdo.php";
+
+if ( isset($_POST['cancel'] ) ) {
+    // Redirect the browser to index.php if user hits "Cancel"
+    header("Location: index.php");
+    return;
+}
+
+$salt = 'XyZzy12*_';
+$stored_hash = '1a52e17fa899cf40fb04cfc42e6352f1';  // Pw is php123
+
+$failure = false;  // If we have no POST data
+
+// Check to see if we have correct POST data, if we do process it
+if ( isset($_POST['who']) && isset($_POST['pass']) ) {
+    if ( strlen($_POST['who']) < 1 || strlen($_POST['pass']) < 1 ) {
+        $failure = "User name and password are required";
+    } else {
+        $check = hash('md5', $salt.$_POST['pass']);
+        if ( $check == $stored_hash ) {
+            // Redirect the browser to autos.php
+            header("Location: autos.php?name=".urlencode($_POST['who']));
+            return;
+        } else {
+            $failure = "Incorrect password";
+        }
+    }
+}
+
+// Fall through into the View
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;?php 
+     require_once "pdo.php";
+    ?>
+&lt;title&gt;Diane Krauthamer's Login Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="container"&gt;
+&lt;h1>Please Log In&lt;/h1&gt;
+&lt;?php
+if ( $failure !== false ) {
+    echo('<p style="color: red;">'.htmlentities($failure)."</p>\n");
+}
+?&gt;
+&lt;form method="POST"&gt;
+&lt;label for="username"&gt;User Name&lt;/label&gt;
+&lt;input type="text" name="who" id="username"&gt;&lt;br/&gt;
+&lt;label for="id_1723"&gt;Password&lt;/label&gt;
+&lt;input type="text" name="pass" id="id_1723"&gt;&lt;br/&gt;
+&lt;input type="submit" value="Log In"&gt;
+&lt;input type="submit" name="cancel" value="Cancel"&gt;
+&lt;/form&gt;
+&lt;p&gt;
+For a password hint, view source and find a password hint
+in the HTML comments.
+&lt;!-- Hint: The password is the four character sound a cat
+makes (all lower case) followed by 123. --&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</pre>
+<h3><a name="autos">autos.php</a></h3>
 
 <a href="#top">Return to top of page</a></p>
 </main>
