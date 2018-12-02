@@ -34,9 +34,9 @@ To execute the game, I uploaded the following PHP files to a local web server vi
 Additionally, I included basic styling using a file named starter-template.css and a standard README.md.<br>
 <h3><a name="index">index.php</a></h3>
 The <strong><a name="index">index.php</a></strong> page introduces the user to the game. It displays what the game is about and offers a basic introduction to the site. This appears as the following in a web browser:<br>
-<img src="https://raw.githubusercontent.com/dianekrauthamer/CSIS290/master/images/phpindex.PNG" alt="Index"><br> 
+<img src="images/phpindex.PNG" alt="Index"><br> 
 This page summarizes that one must be logged in to access the game. If you click “game.php” from this screen, the following message is displayed:<br>
-<img src="https://raw.githubusercontent.com/dianekrauthamer/CSIS290/master/images/phpgamefailed.png" alt="Index"><br> 
+<img src="images/phpgamefailed.PNG" alt="Index"><br> 
 You may view the full index.php code here:
 <pre>
 <p class="code">
@@ -65,14 +65,14 @@ Attempt to go to
 </pre>
 <h3><a name="login">login.php</a></h3>
 The <strong><a name="login">login.php</a></strong> page creates a login screen for users to enter their name and password. The username can be anything, and the password must be “php123.” The “Log in” button on this screen submits the form data using method=”POST.” The username and password are then posted to the server, thus executing the request/response cycle.<br>
-<img src="https://raw.githubusercontent.com/dianekrauthamer/CSIS290/master/images/phplogin.png" alt="Login"><br>
+<img src="images/phplogin.PNG" alt="Login"><br>
 On the login page a “salted hash” is used for the password. To do this, I used the MD5 hashing algorithm to create created a $stored_hash variable. This is the MD5 of the salt concatenated with the plaintext of php123, and was computed using the following PHP: <pre>$md5 = hash('md5', 'XyZzy12*_php123')</pre>
 The following shows this page, as well as an example of a successful login:<br>
-<img src="https://raw.githubusercontent.com/dianekrauthamer/CSIS290/master/images/phploginsuccess.PNG" alt="Login success"><br> 
+<img src="images/phploginsuccess.PNG" alt="Login success"><br> 
 The following shows what happens when the incorrect password is entered:<br> 
-<img src="https://raw.githubusercontent.com/dianekrauthamer/CSIS290/master/images/phploginfail.PNG" alt="Login fail"> <br> 
+<img src="images/phploginfail.PNG" alt="Login fail"> <br> 
 In addition to checking the password, the form contains error handling to check if data was entered at all, or if the field was left blank. For instance, if the user leaves the field blank, the following appears:<br> 
-<img src="https://raw.githubusercontent.com/dianekrauthamer/CSIS290/master/images/phploginblank.PNG" alt="Login blank"> <br>
+<img src="phploginblank.PNG" alt="Login blank"> <br>
 The full code for this login.php page appears below:
 <pre>
 <p class="code">
@@ -142,16 +142,16 @@ makes (all lower case) followed by 123. --&gt;
 </pre>
 <h3><a name="game">game.php</a></h3>
 Once a user successfully logs in, they are directed to the <strong><a name="game">game.php</a></strong> page. This page displays a the username entered in the URL and in the body - thus showing that the POST data successfully went through. In addition, there appears a drop-down menu with options of “rock,” “paper,” “scissors,” or “test.” 
-<img src="https://raw.githubusercontent.com/dianekrauthamer/CSIS290/master/images/phpgamemenu.png" alt="Game menu"> <br> 
+<img src="images/phpgamemenu.PNG" alt="Game menu"> <br> 
 The following shows what appears when each of these options is chosen:<br><br>
 <strong>Rock</strong><br>
-<img src="https://raw.githubusercontent.com/dianekrauthamer/CSIS290/master/images/phpgamerock.png" alt="Game rock"> <br>
+<img src="images/phpgamerock.PNG" alt="Game rock"> <br>
 <strong>Paper</strong><br>
-<img src="https://raw.githubusercontent.com/dianekrauthamer/CSIS290/master/images/phpgamepaper.PNG" alt="Game paper"> <br>
+<img src="images/phpgamepaper.PNG" alt="Game paper"> <br>
 <strong>Scissors</strong><br>
-<img src="https://raw.githubusercontent.com/dianekrauthamer/CSIS290/master/images/phpgamescissors.PNG" alt="Game scissors"> <br>
+<img src="images/phpgamescissors.PNG" alt="Game scissors"> <br>
 <strong>Test</strong><br>
-<img src="https://raw.githubusercontent.com/dianekrauthamer/CSIS290/master/images/phpgametest.PNG" alt="Game test"> <br>
+<img src="images/phpgametest.PNG" alt="Game test"> <br>
 <br>
 The following code shows how this is executed:
 <pre>
