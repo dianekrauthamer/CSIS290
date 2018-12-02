@@ -96,8 +96,8 @@ Attempt to go to
 <h3><a name="login">login.php</a></h3>
 The login.php page provides user access to the Autos Database. It is similar to the <a href="https://dianekrauthamer.github.io/CSIS290/php.html#index"
  target="_blank">login.php page on my PHP page</a> in that includes data validation for the username and password, and the criteria for both the username and password are the same.<br>
-Here is what login.php this looks like on the web server:<br>
-  INSERT SCREENSHOT
+Here is what login.php this looks like on the local web server:<br>
+<img src="images/sqllogin.PNG" alt="Login"><br>
 Here is the code used to create this page:<br>
 <pre>
 &lt;?php // Do not put any HTML above this line
@@ -137,12 +137,12 @@ if ( isset($_POST['who']) && isset($_POST['pass']) ) {
 &lt;head&gt;
 &lt;?php 
      require_once "pdo.php";
-    ?>
+    ?&gt;
 &lt;title&gt;Diane Krauthamer's Login Page&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;div class="container"&gt;
-&lt;h1>Please Log In&lt;/h1&gt;
+&lt;h1&gt;Please Log In&lt;/h1&gt;
 &lt;?php
 if ( $failure !== false ) {
     echo('<p style="color: red;">'.htmlentities($failure)."</p>\n");
