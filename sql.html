@@ -23,7 +23,7 @@
 <main>
 <br>
 During the course of my study in software development, I learned the basic syntax and functionality of the SQL language. By learning SQL in combination with <a href="https://dianekrauthamer.github.io/CSIS290/php.html" target="_blank">PHP</a>, I learned how to build database applications. 
-<br>
+<br><br>
 The following example shows how I was able to utilize a combination of SQL commands and PHP coding  to build a simple database application that allows for users to input data by sending commands to the database server through the browser. This application requires the user to input a username and password via PHP in order to be able to input data. The application then validates the data, and only allows the data to be inserted into the database if the data is valid. 
 <br><br>
 The first step in creating this database application was to create the database itself. To do this, I downloaded XAMPP to be able to work in PHP and SQL in a local testing environment. Once XAMPP was installed, I connected to the MySQL module in order to open a line of communication with XAMPP’s database server. I then pressed the “Admin” tab, which opened  the phpMyAdmin tool (a free software tool written in PHP, intended to handle the administration of MySQL over the web).
@@ -116,7 +116,7 @@ $failure = false;  // If we have no POST data
 
 // Check to see if we have correct POST data, if we do process it
 if ( isset($_POST['who']) && isset($_POST['pass']) ) {
-    if ( strlen($_POST['who']) < 1 || strlen($_POST['pass']) < 1 ) {
+    if ( strlen($_POST['who']) < 1 || strlen($_POST['pass']) &lt; 1 ) {
         $failure = "User name and password are required";
     } else {
         $check = hash('md5', $salt.$_POST['pass']);
@@ -138,14 +138,14 @@ if ( isset($_POST['who']) && isset($_POST['pass']) ) {
 &lt;?php 
      require_once "pdo.php";
     ?&gt;
-&lt;title&gt;Diane Krauthamer's Login Page&lt;/title&gt;
+&lt;title&gt;Diane Krauthamers Login Page&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;div class="container"&gt;
 &lt;h1&gt;Please Log In&lt;/h1&gt;
 &lt;?php
 if ( $failure !== false ) {
-    echo('<p style="color: red;">'.htmlentities($failure)."</p>\n");
+    echo('&ltp style="color: red;"&gt;'.htmlentities($failure)."&lt;/p&gt;\n");
 }
 ?&gt;
 &lt;form method="POST"&gt;
@@ -165,8 +165,93 @@ makes (all lower case) followed by 123. --&gt;
 &lt;/div&gt;
 &lt;/body&gt;
 </pre>
+        
 <h3><a name="autos">autos.php</a></h3>
+Once the user is logged in, they are able to access the autos.php page. This page prompts the user to input the make, year, and mileage of an automobile. If the data entered is valid, it is then entered into the Autos Database. The data is also printed to the page - thus illustrating an effective request/response cycle.<br>
+<img src="images/sqlautosloggedin.PNG" alt="Login"><br>
+The following images show what a user sees when they enter valid data onto this page:<br>
+<img src="images/sqlautos1.PNG" alt="User enters data"><br>
+A validation message that the data was inserted appears at the top of the page, and a table showing the data appears below the form:<br>
+<img src="images/sqlautos2.PNG" alt="Data appears"><br>
+The user may enter as many records as they would like to, and this process continues:<br>
+<img src="images/sqlautos3.PNG" alt="More data"><br>
+Meanwhile, you can see that the Autos Database is being populated from the phpMyAdmin tool as well:<br>
+<img src="images/sqlautos4.PNG" alt="Autos in database"><br>
+<br>
+The code for autos.php is below:<br>
+<pre>
+&lt;?php
+require_once "pdo.php";
 
+if ( isset($_POST['logout'] ) ) {
+    // If the user logs out, redirect the browser to index.php
+    header("Location: index.php");
+    return;
+}
+
+if ( isset($_POST['make']) && isset($_POST['auto_year']) 
+     && isset($_POST['mileage'])) {
+    
+    if (!is_numeric($_POST['auto_year']) || !is_numeric($_POST['mileage'])){
+        echo("Mileage and year must be numeric."), PHP_EOL;
+    } 
+    if ( strlen($_POST['make']) < 1 ) {
+         echo("Make is required");
+    }
+    else {     
+    $sql = "INSERT INTO autos (make, auto_year, mileage) 
+              VALUES (:make, :auto_year, :mileage)";
+    echo("<pre>\n".$sql."\n</pre>\n");
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array(
+        ':make' => $_POST['make'],
+        ':auto_year' => $_POST['auto_year'],
+        ':mileage' => $_POST['mileage']));
+     echo("Record inserted");
+       }           
+}
+
+
+$stmt = $pdo->query("SELECT make, auto_year, mileage, auto_id FROM autos");
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;&lt;body&gt;
+&lt;h1>Diane Krauthamer's Tracking Autos&lt;/h1&gt;
+&lt;form method="post"&gt;
+&lt;p>Make:
+&lt;input type="text" name="make">&lt;/p&gt;
+&lt;p&gt;Year:
+&lt;input type="text" name="auto_year"&gt;&lt;/p&gt;
+&lt;p&gt;Mileage:
+&lt;input type="text" name="mileage">&lt;/p&gt;
+&lt;p&gt;&lt;input type="submit" name="add" value="Add"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type="submit" name="logout" value="Logout"/&gt;&lt;/p&gt;
+&lt;/form&gt;
+    
+   
+&lt;h1>Automobiles&lt;/h1&gt;
+&lt;table border="1"&gt;
+&lt;?php
+foreach ( $rows as $row ) {
+    echo "&lt;tr&gt;&lt;td&gt;";
+    echo($row['make']);
+    echo("&lt;/td&gt;&lt;td&gt;");
+    echo($row['auto_year']);
+    echo("&lt;/td&gt;&lt;td&gt;");
+    echo($row['mileage']);
+    echo("&lt;/td&gt;&lt;td&gt;");
+    echo('&lt;form method="post"><input type="hidden" ');
+    echo('name="auto_id" value="'.$row['auto_id'].'">'."\n");
+    echo("\n&lt;/form&gt;\n");
+    echo("&lt;/td>&lt;/tr&gt;\n");
+}
+?&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+</pre>
+        
+<br><br>
 <a href="#top">Return to top of page</a></p>
 </main>
 <footer>Copyright &copy; 2018 Diane Krauthamer</footer>
